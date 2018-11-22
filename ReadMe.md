@@ -9,3 +9,5 @@ Windows10 Visual Studio 2015
 #### Chapter2 变量，数据和类
 
 #### Chapter3 string&vector
+
+#### Chapter6 function
