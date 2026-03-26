@@ -3,7 +3,7 @@
 [![C++](https://img.shields.io/badge/C++-11-blue.svg)](https://isocpp.org/)
 [![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)]()
 
-《C++ Primer 第五版》课后习题解答，涵盖第 1、2、3、6、7、8、9、10 章，以及一个补充的单例设计模式实现。
+《C++ Primer 第五版》课后习题解答，涵盖第 1、2、3、6、7、8、9、10 章，一个补充的单例设计模式实现，以及 chapter100 高级 C++ 特性示例。
 
 **开发环境：** Windows 10 / Visual Studio 2015
 
@@ -21,6 +21,7 @@ CPP-Perimer-5th/
 ├── chapter8/          # IO 库
 ├── chapter9/          # 顺序容器
 ├── chapter10/         # 泛型算法
+├── chapter100/        # 高级 C++ 特性示例（补充）
 └── Singleton/         # 单例设计模式（补充）
 ```
 
@@ -152,6 +153,17 @@ CPP-Perimer-5th/
 |------|--------|
 | [singleton.cpp](Singleton/singleton.cpp) | **单例模式**（懒汉式）：private 构造/析构、`= delete` 禁用拷贝、`static` 成员变量与函数、`nullptr`、`auto` |
 
+### Chapter 100 — 高级 C++ 特性示例
+
+| 文件 | 知识点 |
+|------|--------|
+| [100_templates.cpp](chapter100/100_templates.cpp) | **模板**：函数模板、多类型参数模板、类模板（含非类型参数）、模板特化、`static_assert` + `type_traits` 编译期检查 |
+| [101_smart_pointers.cpp](chapter100/101_smart_pointers.cpp) | **智能指针**：`shared_ptr`（引用计数、`make_shared`）、`unique_ptr`（所有权转移、`make_unique`）、`weak_ptr`（打破循环引用）、自定义删除器 |
+| [102_move_semantics.cpp](chapter100/102_move_semantics.cpp) | **移动语义**：右值引用 `&&`、`std::move`、移动构造函数、移动赋值运算符、拷贝 vs 移动对比、左值/右值引用重载分发 |
+| [103_lambda.cpp](chapter100/103_lambda.cpp) | **Lambda 表达式**：基本语法、捕获列表（值/引用/`[=]`/`[&]`/混合）、`mutable` lambda、泛型 lambda（C++14）、`std::function` 存储、与 STL 算法配合（`sort`/`for_each`/`count_if`/`transform`/`accumulate`） |
+| [104_inheritance.cpp](chapter100/104_inheritance.cpp) | **继承与多态**：基类/派生类、`public` 继承、虚函数 `virtual`、`override`、`final`、纯虚函数与抽象类、多态集合（`unique_ptr<Animal>`）、虚析构函数 |
+| [105_exceptions.cpp](chapter100/105_exceptions.cpp) | **异常处理**：`try`/`catch`/`throw`、多层 catch 与继承层次匹配、`catch(...)`、rethrow、自定义异常类、标准异常（`out_of_range`）、`noexcept`、RAII 异常安全 |
+
 ---
 
 ## C++ 特性汇总
@@ -164,21 +176,23 @@ CPP-Perimer-5th/
 | **类与面向对象** | `class`/`struct`、构造函数（default/参数化/`= default`）、构造函数初始值列表、`this` 指针 / 返回 `*this`、`friend` 友元函数与类、访问控制（`public`/`private`）、`const` 成员函数、方法重载与链式调用、类内类型别名（`typedef`/`using`） |
 | **IO 库** | `ifstream`、`istringstream`、`ostringstream`、流状态管理 |
 | **泛型算法** | `count`、`accumulate`、`fill_n`、`sort`、`unique`、`stable_sort`、`back_inserter`、自定义谓词 |
+| **模板** | 函数模板、类模板（含非类型参数）、模板特化、`static_assert`、`type_traits` |
+| **智能指针** | `shared_ptr`、`unique_ptr`、`weak_ptr`、自定义删除器 |
+| **移动语义** | 右值引用 `&&`、`std::move`、移动构造/赋值、拷贝 vs 移动 |
+| **Lambda** | 基本 lambda、捕获列表、`mutable`、泛型 lambda、`std::function` |
+| **继承与多态** | `virtual`、`override`、`final`、纯虚函数、抽象类、虚析构函数 |
+| **异常处理** | `try`/`catch`/`throw`、自定义异常、`noexcept`、RAII |
 | **其他** | 范围 `for` 循环、`decltype`、`auto`、分离编译、include 守卫、单例设计模式 |
 
 ---
 
 ## 尚未覆盖的主题
 
-以下为 C++ Primer 后续章节涉及的高级特性，本仓库暂未包含：
+以下特性已通过 [chapter100](chapter100/) 补充：模板、智能指针、移动语义、Lambda、继承与多态、异常处理。
 
-- 模板（函数模板 / 类模板）
-- 智能指针（`shared_ptr` / `unique_ptr` / `weak_ptr`）
-- 移动语义与右值引用
-- Lambda 表达式
+仍未覆盖的特性：
+
 - 关联容器（`map` / `set` / `unordered_map` 等）
-- 继承与多态、虚函数
-- 异常处理
 - `constexpr` 函数与变量
 - 可变参数模板
 - 第 4、5、11+ 章
